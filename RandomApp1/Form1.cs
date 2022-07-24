@@ -7,32 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RandomApp1
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+namespace RandomApp1 {
+	public partial class Form1 : Form {
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+		public Form1() {
+			InitializeComponent();
+		}
 
-        }
+		private void pictureBox1_Click(object sender, EventArgs e) {
+			string imgmsg = "click yes or no";
+			string imgmsgtitle = "you clicked the image";
+			MessageBox.Show(imgmsg, imgmsgtitle);
+		}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-               this.Hide(); 
-               var myForm = new Form2();
-               myForm.Show();
-        }
+		private void button2_Click(object sender, EventArgs e) {
+			this.Hide(); 
+			var yesForm = new Form2();
+            yesForm.Closed += (s, args) => this.Close(); 
+			yesForm.Show();
+		}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-                this.Hide();
-                var noForm = new Form3();
-                noForm.Show();
-        }
-        }
-    }
+		private void button1_Click(object sender, EventArgs e) {
+			this.Hide();
+			var noForm = new Form3();
+            noForm.Closed += (s, args) => this.Close(); 
+			noForm.Show();
+		}
+	}
+}

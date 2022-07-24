@@ -7,19 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RandomApp1
-{
-    public partial class Form5 : Form
-    {
-        public Form5()
-        {
-            InitializeComponent();
-        }
+namespace RandomApp1 {
+	public partial class Form5 : Form {
+		public Form5() {
+			InitializeComponent();
+		}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var uForm = new Form5();
-            uForm.Show();
-        }
-    }
+		private void button1_Click(object sender, EventArgs e) {
+			var nouForm = new Form5();
+            nouForm.Closed += (s, args) => this.Close(); 
+			nouForm.Show();
+		}
+	}
 }
